@@ -29,13 +29,18 @@ def changerVariable():
 window= Tk()
 window.title('Requetes SQL : ')
 
-# 
+# Initialiser des StringVar pour pouvoir stocker des chaines de caractères variables
+# c'est à dire que si on les modifie, le changement sera immédiatement visible partout
+# où elles sont utilisées.
 reponse = StringVar()
 reponse.set("Ici le retour")
 
-labelReponse= Label(window, textvariable=reponse,justify=LEFT)
+labelReponse= Label(window, textvariable=reponse,justify=LEFT) 
+# justify=LEFT nous permet de justifier le tableau texte à gauche, par défaut c'est au centre et c'est pas très joli
 labelReponse.pack(side=TOP)
+# on va coller cette case de label en haut de notre fenetre.
 
+# là où on va écrire notre commande
 variableCommande = StringVar()
 variableCommande.set('Votre commande')
 
@@ -43,6 +48,8 @@ saisieCommande=Entry(window,textvariable=variableCommande,width=50)
 saisieCommande.pack()
 
 boutonExecuter= Button(window,text="Exécuter",command=changerVariable)
+# à l'aide de "command=changerVariable" tkinter va exécuter la fonction changerVariable définie
+# plus haut à chaque fois que le bouton est pressé
 boutonExecuter.pack()
 
 window.mainloop()
